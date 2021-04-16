@@ -21,6 +21,13 @@
 ** ASSEMBLY BLOCK 2.                                                    **
 *************************************************************************/
 
+/*	I've verified all of these appear in the decrypted, unpacked DLL, which is assumedly the one from .stub
+	and that they don't appear in dropper.exe or ~WTR4132.tmp, so we do actually have at least partial contents of
+	our main payload. The interesting part is, the way this is structured, it's hard to see exactly what we do(n't) have,
+	and if any of the DLL has been decompiled alongside the dropper. Does this correspond in any way to the rootkit contents?
+	Or does rootkit refer only to the components related to its behavior as a rootkit, independent of the main payload?
+*/
+
 __declspec(naked) void __ASM_REF_3(void)
 {
 	__asm

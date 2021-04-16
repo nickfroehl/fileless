@@ -25,7 +25,7 @@ HINSTANCE g_hInstDLL = NULL;
 BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpReserved)
 {
 	if(fdwReason && fdwReason == 1)
-        g_hInstDLL = hinstDLL;
+        g_hInstDLL = hinstDLL; //set global variable equal to handle of this DLL, for use throughout Dropper
 
 	return TRUE;
 }

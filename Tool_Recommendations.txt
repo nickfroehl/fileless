@@ -1,0 +1,2 @@
+Ghidra, my analysis is made with version 9.12
+CFF Explorer: great PE analysis tool & hex editor, was indispensible

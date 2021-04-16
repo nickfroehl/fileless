@@ -1,0 +1,33 @@
+Files:
+
+stuxnet-master\Dropper: mostly decompiled, some disassembled only, of seemingly all of the Stuxnet Dropper, but only some of the Main DLL (.stub)
+	But definitely some of the DLL as ASM, but also not all of it
+stuxnet-master\Rootkit: the rootkit driver (I believe only this and not the Load driver), decompiled
+
+stuxnet_silverpoision\signed drivers\
+	file1: another driver
+	file2: another driver
+	file3: MRxCls.sys, so, the Loader driver
+		https://www.geoffchappell.com/notes/security/stuxnet/mrxcls.htm
+		No Export Table
+	file4: mrxnet.sys rootkit driver
+		Export Table
+stuxnet_silverpoision\stuxnet core\
+	dropper.exe_: Stuxnet Dropper
+		Contains seemingly-full .stub section contents, encrypted
+	maindll.decrypted.unpacked.dll_: full contents of main dll unpacked from dropper's .stub section
+		Contains all ordinal exports that have been identified as part of stuxnet's DLL, entry@15
+stuxnet_silverpoision\~WTR4132.tmp: essentially the same as dropper.exe_, apart from a small few single-byte differences and a small chunk of different contents toward the end)
+	Derived from resource 210
+	Contains stub section
+stuxnet_silverpoision\~WTR4141.tmp: loader for ~WTR4132.tmp
+	Built from resource 241
+	This file has the code to hook DLL APIs to monitor for certain filenames
+stuxnet_silverpoision\A0055521.sys: no idea
+stuxnet_silverpoision\Copy of...: initial execution stuff, or privesc or both
+stuxnet_silverpoision\diffs...: diff of dropper.exe and ~WTR4132.tmp
+stuxnet_silverpoision\dll.dll: no idea
+stuxnet_silverpoision\malware.exe: it's dropper.exe, but missing ~4k of data from .stub
+stuxnet_silverpoision\orig.rar: officially untampered, as opposed to the still-untampered unarchived files
+stuxnet_silverpoision\suckme.lnk_: file rename (not mine) of the LNK file
+

