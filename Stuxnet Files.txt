@@ -1,6 +1,6 @@
 Files:
 
-stuxnet-master\Dropper: mostly decompiled, some disassembled only, of seemingly all of the Stuxnet Dropper, but only some of the Main DLL (.stub)
+stuxnet-master\Dropper: mostly decompiled, some disassembled only, of seemingly all of the Stuxnet Dropper, but (seemingly) only some of the Main DLL (.stub)
 	But definitely some of the DLL as ASM, but also not all of it
 stuxnet-master\Rootkit: the rootkit driver (I believe only this and not the Load driver), decompiled
 

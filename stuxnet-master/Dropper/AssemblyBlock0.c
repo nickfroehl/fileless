@@ -27,10 +27,13 @@ void __declspec(naked) __ASM_BLOCK0_0(void)
 {
 	__asm
 	{
+		//these instructions look closer to a signature than actual executed ASM, so it makes sense they'd be skipped
 		cmp     edx, [eax]
 		dec     ecx
 		stosd
 
+		//Address: __ASM_BLOCK0_0 + 4 is here
+		//The changes we make to DL are less than a 4-byte alignment, so this isn't like, proper vtable indexing, but more like, how far to skip in, either for skipping past an injected jump instruction, or for like, fixing mis-alignment
 		mov     dl, 0
 		jmp     short __ASM_REF_0
 

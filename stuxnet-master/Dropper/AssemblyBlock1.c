@@ -40,9 +40,12 @@ void __declspec(naked) __ASM_BLOCK1_1(void)
 {
 	__asm
 	{
+		//__declspec(naked) means there's no ebp in preamble, so pop will directly pop the retaddr (instruction after CALL), which is where we EMITted string data, so this addr is a char*
 		pop     edx  // EDX = char * "ZwMapViewOfSection"
+		//ECX still ASM_BLOCK0_0
 		push    ecx
-		add     ecx, 4 // ECX = a vtable?
+		add     ecx, 4 // ECX = a vtable? //Offsetting into the instructions, not quite a standard vtable because the values moved into DL are not 4-byte aligned
+		//ecx: first real instruction in Block0_0, edx: string of libfunc name
 		call    __ASM_REF_7
 		pop     ecx
 		call    __ASM_BLOCK1_2

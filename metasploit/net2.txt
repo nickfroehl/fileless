@@ -1,0 +1,175 @@
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State           PID
+  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       532
+  RpcSs
+ [svchost.exe]
+  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4
+ Can not obtain ownership information
+  TCP    0.0.0.0:2179           0.0.0.0:0              LISTENING       1868
+ [vmms.exe]
+  TCP    0.0.0.0:5040           0.0.0.0:0              LISTENING       5680
+  CDPSvc
+ [svchost.exe]
+  TCP    0.0.0.0:7680           0.0.0.0:0              LISTENING       3028
+ Can not obtain ownership information
+  TCP    0.0.0.0:49664          0.0.0.0:0              LISTENING       768
+ [lsass.exe]
+  TCP    0.0.0.0:49665          0.0.0.0:0              LISTENING       668
+ Can not obtain ownership information
+  TCP    0.0.0.0:49666          0.0.0.0:0              LISTENING       1288
+  Schedule
+ [svchost.exe]
+  TCP    0.0.0.0:49667          0.0.0.0:0              LISTENING       1540
+  EventLog
+ [svchost.exe]
+  TCP    0.0.0.0:54472          0.0.0.0:0              LISTENING       740
+ Can not obtain ownership information
+  TCP    0.0.0.0:65444          0.0.0.0:0              LISTENING       3928
+ [spoolsv.exe]
+  TCP    127.0.0.1:5433         0.0.0.0:0              LISTENING       15088
+ [postgres.exe]
+  TCP    127.0.0.1:6463         0.0.0.0:0              LISTENING       12380
+ [Discord.exe]
+  TCP    129.2.205.53:139       0.0.0.0:0              LISTENING       4
+ Can not obtain ownership information
+  TCP    129.2.205.53:2179      194.165.16.23:63993    ESTABLISHED     1868
+ [vmms.exe]
+  TCP    129.2.205.53:55061     104.89.1.110:443       CLOSE_WAIT      9572
+ [WinStore.App.exe]
+  TCP    129.2.205.53:55129     104.89.1.110:443       CLOSE_WAIT      9572
+ [WinStore.App.exe]
+  TCP    129.2.205.53:57820     52.177.165.30:443      ESTABLISHED     4496
+  WpnService
+ [svchost.exe]
+  TCP    129.2.205.53:63386     3.225.226.119:443      ESTABLISHED     8740
+ [slack.exe]
+  TCP    129.2.205.53:63461     172.253.63.188:5228    ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64011     13.107.18.11:443       ESTABLISHED     748
+ [Microsoft.Notes.exe]
+  TCP    129.2.205.53:64014     35.186.224.47:443      ESTABLISHED     17272
+ [Discord.exe]
+  TCP    129.2.205.53:64109     162.159.135.234:443    ESTABLISHED     17272
+ [Discord.exe]
+  TCP    129.2.205.53:64114     104.45.188.91:443      CLOSE_WAIT      20368
+ [SystemSettings.exe]
+  TCP    129.2.205.53:64115     104.18.24.243:80       CLOSE_WAIT      20368
+ [SystemSettings.exe]
+  TCP    129.2.205.53:64257     104.244.42.5:443       ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64305     104.244.42.67:443      ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64555     108.174.10.14:443      CLOSE_WAIT      6780
+ [SearchApp.exe]
+  TCP    129.2.205.53:64599     151.101.65.69:443      ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64602     199.232.64.193:443     ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64754     54.164.13.198:443      ESTABLISHED     8740
+ [slack.exe]
+  TCP    129.2.205.53:64755     54.164.13.198:443      ESTABLISHED     8740
+ [slack.exe]
+  TCP    129.2.205.53:64782     54.164.13.198:443      ESTABLISHED     8740
+ [slack.exe]
+  TCP    129.2.205.53:64792     151.101.248.157:443    ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64795     104.18.102.194:443     ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64808     142.250.73.227:443     CLOSE_WAIT      8980
+ [chrome.exe]
+  TCP    129.2.205.53:64819     185.199.108.154:443    ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64822     185.199.108.154:443    ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64823     185.199.108.133:443    ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64825     185.199.110.133:443    ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64831     140.82.113.25:443      ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64833     96.47.72.84:443        CLOSE_WAIT      8980
+ [chrome.exe]
+  TCP    129.2.205.53:64834     96.47.72.84:443        CLOSE_WAIT      8980
+ [chrome.exe]
+  TCP    129.2.205.53:64835     96.47.72.84:443        CLOSE_WAIT      8980
+ [chrome.exe]
+  TCP    129.2.205.53:64836     96.47.72.84:443        CLOSE_WAIT      8980
+ [chrome.exe]
+  TCP    129.2.205.53:64837     96.47.72.84:443        CLOSE_WAIT      8980
+ [chrome.exe]
+  TCP    129.2.205.53:64838     96.47.72.84:443        CLOSE_WAIT      8980
+ [chrome.exe]
+  TCP    129.2.205.53:64839     172.67.31.83:443       ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64840     172.67.31.83:443       TIME_WAIT       0
+  TCP    129.2.205.53:64841     104.18.11.207:443      ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64842     199.232.130.109:443    ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64844     13.32.196.159:443      ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64846     172.217.164.131:443    ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64847     13.32.196.159:443      ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64848     52.85.144.70:443       ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64849     52.85.144.35:443       ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64850     104.96.230.202:443     ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64851     13.32.200.99:443       TIME_WAIT       0
+  TCP    129.2.205.53:64852     13.32.200.99:443       ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64853     99.84.176.10:443       ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64854     99.84.176.10:443       TIME_WAIT       0
+  TCP    129.2.205.53:64855     31.13.66.19:443        ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64856     3.222.18.181:443       ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64858     45.35.205.78:443       ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64859     13.32.200.99:443       ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64860     99.84.176.6:443        ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64861     99.84.106.56:443       ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64862     13.32.200.120:443      ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64863     172.217.13.66:443      ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64865     99.84.176.5:443        ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64867     142.250.73.206:443     ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64868     18.214.242.166:443     ESTABLISHED     8740
+ [slack.exe]
+  TCP    129.2.205.53:64869     13.32.200.50:443       ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64870     52.85.131.79:443       ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64872     108.174.10.14:443      ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64873     18.213.112.244:443     ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64874     72.21.91.24:443        ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64875     192.28.147.68:443      ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64876     34.202.225.38:443      ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64877     173.194.205.154:443    ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64878     52.167.17.97:443       TIME_WAIT       0
+  TCP    129.2.205.53:64879     184.72.250.63:443      ESTABLISHED     8740
+ [slack.exe]
+  TCP    172.25.0.1:139         0.0.0.0:0              LISTENING       4
+ Can not obtain ownership information
+  TCP    172.26.176.1:139       0.0.0.0:0              LISTENING       4
+ Can not obtain ownership information
+  TCP    192.168.56.1:139       0.0.0.0:0              LISTENING       4
+ Can not obtain ownership information

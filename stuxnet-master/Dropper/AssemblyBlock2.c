@@ -454,6 +454,7 @@ __declspec(naked) void __ASM_REF_6(void)
 
 /* __ASM_REF_7
 * ecx - seems to be some kind of flag
+* 		Disagree! At least from 1_0, it is an instruction within 0_0 that will modify, then call, EDX
 */
 __declspec(naked) void __ASM_REF_7(void)
 {

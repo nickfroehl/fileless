@@ -61,7 +61,7 @@ typedef struct _GENERAL_INFO_BLOCK {
 typedef struct _SECTION_SEGEMENT_INFO {
 	DWORD SegmentAddress;
 	DWORD SegmentSize;
-} SECTION_SEGEMENT_INFO, *PSECTION_SEGEMENT_INFO;
+} SECTION_SEGEMENT_INFO, *PSECTION_SEGEMENT_INFO; //simply a pointer and size
 
 typedef struct _VIRUS_MODULE_BLOCKS_HEADER {
 	GENERAL_INFO_BLOCK    InformationBlock;
@@ -72,8 +72,8 @@ typedef struct _VIRUS_MODULE_BLOCKS_HEADER {
 } VIRUS_MODULE_BLOCKS_HEADER, *PVIRUS_MODULE_BLOCKS_HEADER;
 
 typedef struct _ASM_CODE_BLOCKS_HEADER {
-	DWORD                 ExecuteLibrary;
-	DWORD                 AlignAddresses;
+	DWORD                 ExecuteLibrary; //32-bit memaddr? of fxn address? likely yes
+	DWORD                 AlignAddresses; //looks to be a fxn ptr
 	SECTION_SEGEMENT_INFO ASMBlock1Segment;
 	SECTION_SEGEMENT_INFO CodeBlockSegment;
 	SECTION_SEGEMENT_INFO ASMBlock0Segment;

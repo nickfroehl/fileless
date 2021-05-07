@@ -58,7 +58,7 @@ typedef struct _HARDCODED_ADDRESSES {
 	const _tZwClose               ZwClose;
 } HARDCODED_ADDRESSES, *PHARDCODED_ADDRESSES;
 
-HARDCODED_ADDRESSES g_hardAddrs;
+HARDCODED_ADDRESSES g_hardAddrs; //this isn't actually hardcoded, at least from the standpoint of the initial payload, because we fill these with calls to GetProcAddress etc. in Encoding.c (but may be hardcoded if/when passed to other processes?)
 
 void __ASM_REF_3(void);
 void __ASM_REF_4(void);

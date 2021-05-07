@@ -1,0 +1,89 @@
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State           PID
+  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       532
+  RpcSs
+ [svchost.exe]
+  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4
+ Can not obtain ownership information
+  TCP    0.0.0.0:2179           0.0.0.0:0              LISTENING       1868
+ [vmms.exe]
+  TCP    0.0.0.0:5040           0.0.0.0:0              LISTENING       5680
+  CDPSvc
+ [svchost.exe]
+  TCP    0.0.0.0:7680           0.0.0.0:0              LISTENING       3028
+ Can not obtain ownership information
+  TCP    0.0.0.0:49664          0.0.0.0:0              LISTENING       768
+ [lsass.exe]
+  TCP    0.0.0.0:49665          0.0.0.0:0              LISTENING       668
+ Can not obtain ownership information
+  TCP    0.0.0.0:49666          0.0.0.0:0              LISTENING       1288
+  Schedule
+ [svchost.exe]
+  TCP    0.0.0.0:49667          0.0.0.0:0              LISTENING       1540
+  EventLog
+ [svchost.exe]
+  TCP    0.0.0.0:54472          0.0.0.0:0              LISTENING       740
+ Can not obtain ownership information
+  TCP    0.0.0.0:65444          0.0.0.0:0              LISTENING       3928
+ [spoolsv.exe]
+  TCP    127.0.0.1:6463         0.0.0.0:0              LISTENING       12380
+ [Discord.exe]
+  TCP    129.2.205.53:139       0.0.0.0:0              LISTENING       4
+ Can not obtain ownership information
+  TCP    129.2.205.53:2179      194.165.16.23:63993    ESTABLISHED     1868
+ [vmms.exe]
+  TCP    129.2.205.53:55061     104.89.1.110:443       CLOSE_WAIT      9572
+ [WinStore.App.exe]
+  TCP    129.2.205.53:55129     104.89.1.110:443       CLOSE_WAIT      9572
+ [WinStore.App.exe]
+  TCP    129.2.205.53:57820     52.177.165.30:443      ESTABLISHED     4496
+  WpnService
+ [svchost.exe]
+  TCP    129.2.205.53:63372     184.72.250.63:443      ESTABLISHED     8740
+ [slack.exe]
+  TCP    129.2.205.53:63375     3.82.33.168:443        ESTABLISHED     8740
+ [slack.exe]
+  TCP    129.2.205.53:63376     3.82.33.168:443        ESTABLISHED     8740
+ [slack.exe]
+  TCP    129.2.205.53:63378     52.2.208.199:443       ESTABLISHED     8740
+ [slack.exe]
+  TCP    129.2.205.53:63386     3.225.226.119:443      ESTABLISHED     8740
+ [slack.exe]
+  TCP    129.2.205.53:63461     172.253.63.188:5228    ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64011     13.107.18.11:443       ESTABLISHED     748
+ [Microsoft.Notes.exe]
+  TCP    129.2.205.53:64014     35.186.224.47:443      ESTABLISHED     17272
+ [Discord.exe]
+  TCP    129.2.205.53:64109     162.159.135.234:443    ESTABLISHED     17272
+ [Discord.exe]
+  TCP    129.2.205.53:64114     104.45.188.91:443      CLOSE_WAIT      20368
+ [SystemSettings.exe]
+  TCP    129.2.205.53:64115     104.18.24.243:80       CLOSE_WAIT      20368
+ [SystemSettings.exe]
+  TCP    129.2.205.53:64257     104.244.42.5:443       ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64305     104.244.42.67:443      ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64433     140.82.113.26:443      ESTABLISHED     8980
+ [chrome.exe]
+  TCP    129.2.205.53:64555     108.174.10.14:443      CLOSE_WAIT      6780
+ [SearchApp.exe]
+  TCP    129.2.205.53:64570     40.126.24.82:443       TIME_WAIT       0
+  TCP    129.2.205.53:64572     160.72.43.240:80       TIME_WAIT       0
+  TCP    129.2.205.53:64573     160.72.43.240:80       TIME_WAIT       0
+  TCP    129.2.205.53:64574     173.194.68.189:443     TIME_WAIT       0
+  TCP    129.2.205.53:64575     162.159.138.232:443    ESTABLISHED     17272
+ [Discord.exe]
+  TCP    129.2.205.53:64576     52.114.158.91:443      TIME_WAIT       0
+  TCP    129.2.205.53:64577     52.114.158.91:443      TIME_WAIT       0
+  TCP    129.2.205.53:64578     142.250.65.78:443      ESTABLISHED     8980
+ [chrome.exe]
+  TCP    172.25.0.1:139         0.0.0.0:0              LISTENING       4
+ Can not obtain ownership information
+  TCP    172.26.176.1:139       0.0.0.0:0              LISTENING       4
+ Can not obtain ownership information
+  TCP    192.168.56.1:139       0.0.0.0:0              LISTENING       4
+ Can not obtain ownership information
